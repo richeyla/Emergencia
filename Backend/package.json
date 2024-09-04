@@ -1,0 +1,23 @@
+{
+  "name": "emergencia",
+  "version": "1.0.0",
+  "description": "-REGISTRO DE PACIENTE PARA EMERGENCIA  -ENVIAR A INTERNAR   -LISTADO DE EMERGENCIA   -REGISTRO DE DOCTORES QUE LO VIERON Y MEDICAMENTO RECETADO",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "nodemon": "^3.1.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  }
+}
