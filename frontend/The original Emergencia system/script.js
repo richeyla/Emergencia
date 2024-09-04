@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function () {
 
     const pacientes = [];
@@ -8,6 +9,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const listadoPacientes = document.getElementById("listadoPacientes");
     const nombreInternar = document.getElementById('nombreInternar');
     const nombrePacienteDoctor = document.getElementById('nombrePacienteDoctor');
+    //funcion para obtener los datos del backend
+    function obtenerPacientes() {
+        fetch('localhost:3000/data')
+            .then(response => response.json())
+            .then(data => {
+                actualizarListado(data);
+            }).catch(error => {
+                alert('Error en los datos del paciente:', error);
+            });
+    }
 
     formRegistroPaciente.addEventListener('submit', function (e) {
         e.preventDefault();
@@ -34,22 +45,35 @@ document.addEventListener("DOMContentLoaded", function () {
             doctores: [],
             medicamentos: []
         };
+        //Enviar datos al Backend 
+        fetch('localhost:3000/data', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(paciente)
+        })
+            .then(response => response.json())
+            .then(() => {
+                obtenerPacientes();
+                formRegistroPaciente.reset()
+            })
 
         pacientes.push(paciente);
-        actualizarListado();
-        formRegistroPaciente.reset();
     });
 
     formEnviarInternar.addEventListener('submit', function (e) {
         e.preventDefault();
-
+        /*
         const nombreSeleccionado = nombreInternar.value;
         const paciente = pacientes.find(p => p.nombre === nombreSeleccionado);
         if (paciente) {
             paciente.internado = true;
             alert(`${nombreSeleccionado} ha sido internado.`);
             actualizarListado();
-        }
+        } */
+
+
     });
 
     formRegistroDoctor.addEventListener('submit', function (e) {
