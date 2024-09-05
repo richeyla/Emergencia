@@ -1,20 +1,20 @@
 import express from 'express';
-import { getPatients, addPatient } from './models/patient';
+import patientRoutes from './routes/patientRoutes';
+import doctorRoutes from './routes/doctorRoutes';
+import emergencyRoutes from './routes/emergencyRoutes';
+import treatmentRoutes from './routes/treatmentRoutes';
 
 const app = express();
 app.use(express.json());
 
-app.get('/patients', (req, res) => {
-  res.send(getPatients());
-});
+// Rutas
+app.use('/api', patientRoutes);
+app.use('/api', doctorRoutes);
+app.use('/api', emergencyRoutes);
+app.use('/api', treatmentRoutes);
 
-app.post('/patients', (req, res) => {
-  addPatient(req.body);
-  res.status(201).json({ message: 'Patient added' });
-});
-
-// Otros endpoints 
-const port = 3001;
+// Puesta en marcha del servidor
+const port = process.env.PORT || 3001;
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
