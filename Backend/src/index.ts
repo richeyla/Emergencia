@@ -1,48 +1,20 @@
 import express from 'express';
-import fs from 'fs';
-import path from 'path';
+import { getPatients, addPatient } from './models/patient';
 
 const app = express();
 app.use(express.json());
 
-const dataPath = path.join(__dirname, 'data', 'tuarchivo.json');
-
-// Endpoint para obtener los datos
-app.get('/data', (req, res) => {
-    fs.readFile(dataPath, 'utf8', (err, data) => {
-        if (err) {
-            res.status(500).json({ error: 'Error al leer el archivo JSON' });
-        } else {
-            res.json(JSON.parse(data));
-        }
-    });
+app.get('/patients', (req, res) => {
+  res.send(getPatients());
 });
 
-// Endpoint para agregar datos
-app.post('/data', (req, res) => {
-    fs.readFile(dataPath, 'utf8', (err, data) => {
-        if (err) {
-            res.status(500).json({ error: 'Error al leer el archivo JSON' });
-            return;
-        }
-
-        const jsonData = JSON.parse(data);
-        const newEntry = req.body;
-
-        // Agregar la nueva entrada al JSON
-        jsonData.push(newEntry);
-
-        // Escribir de vuelta el archivo JSON
-        fs.writeFile(dataPath, JSON.stringify(jsonData, null, 2), (err) => {
-            if (err) {
-                res.status(500).json({ error: 'Error al escribir en el archivo JSON' });
-            } else {
-                res.status(201).json({ message: 'Datos agregados correctamente' });
-            }
-        });
-    });
+app.post('/patients', (req, res) => {
+  addPatient(req.body);
+  res.status(201).json({ message: 'Patient added' });
 });
 
-app.listen(3000, () => {
-    console.log('Server running on port 3000');
+// Otros endpoints 
+const port = 3001;
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
 });
