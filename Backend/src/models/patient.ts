@@ -9,7 +9,7 @@ export interface Patient {
     name:string;
     age:number;
     gender: string;
-    cedula:number;
+    idNumber:number;
     phone: string;
     relativeName: string;
     relativePhone:string;
