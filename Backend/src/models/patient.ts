@@ -3,7 +3,7 @@ import path from 'path';
 import { Emergency } from './emergency';
 
 //Ruta del JSON
-const dataPath = path.join(__dirname, '../');
+const dataPath = path.join(__dirname, '../../data/patients.json');
 
 export interface Patient {
     name:string;
@@ -22,7 +22,7 @@ export interface Patient {
 
 export function getPatients(): Patient[]{
     const data = JSON.parse(fs.readFileSync(dataPath,'utf8'));
-    return data.patients;
+    return data;
 }
 
 export function addPatient(patient: Patient):void {

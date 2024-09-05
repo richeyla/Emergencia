@@ -1,0 +1,18 @@
+[
+    {
+      "id": 1,
+      "nombre": "Juan Pérez",
+      "edad": 30,
+      "sexo": "Masculino",
+      "cedula": "123456789",
+      "telefono": "555-1234",
+      "nombrePariente": "Maria Pérez",
+      "telefonoPariente": "555-5678",
+      "sintomas": "Dolor de cabeza",
+      "internado": false,
+      "doctores": [],
+      "medicamentos": []
+    }
+  ]
+
+  
