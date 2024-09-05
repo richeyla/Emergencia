@@ -2,7 +2,6 @@ import express from 'express';
 import fs from 'fs';
 import path from 'path';
 import cors from 'cors';
-import { json } from 'stream/consumers';
 
 
 const app = express();
@@ -17,7 +16,7 @@ app.use(cors({
 }));
 
 
-const dataPath = path.join(__dirname, 'data', 'tuarchivo.json');
+const dataPath = path.join(__dirname, 'data', '/Backend/src/data/paciente.json');
 
 // Endpoint para obtener los datos
 app.get('/data', (req, res) => {
@@ -79,7 +78,7 @@ app.put('internal/:nombre', (req, res) => {
         } else {
             res.status(404).json({ error: 'Paciente no encontrado' });
         }
-    }); // <-- Aquí agregué la coma
+    });
 });
 
 

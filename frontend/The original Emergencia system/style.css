@@ -63,12 +63,7 @@ nav .menu-option a:hover {
 
 main {
     padding: 20px;
-}
-
-.seccion {
-    display: contents;
-    justify-content: center;
-    align-items: center;
+    background-color: rgb(224, 36, 36);
 }
 
 h2 {

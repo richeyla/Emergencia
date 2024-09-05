@@ -59,7 +59,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 formRegistroPaciente.reset()
             })
 
-        pacientes.push(paciente);
+        /* pacientes.push(paciente);
+        actualizarListado();
+        formRegistroPaciente.reset(); */
     });
 
     formEnviarInternar.addEventListener('submit', function (e) {
@@ -73,7 +75,17 @@ document.addEventListener("DOMContentLoaded", function () {
             actualizarListado();
         } */
 
-
+        const nombreSeleccionado = nombreInternar.value;
+        fetch(`localhost:3000/internal/${nombreSeleccionado}`, {
+            method: "PUT" //Se utiliza para actualizar
+        })
+            .then(response => response.json())
+            .then(() => {
+                obtenerPacientes();
+            })
+            .catch(error => {
+                alert(`Error al internar paciente:`, error);
+            })
     });
 
     formRegistroDoctor.addEventListener('submit', function (e) {
@@ -83,13 +95,20 @@ document.addEventListener("DOMContentLoaded", function () {
         const nombreDoctor = document.getElementById('nombreDoctor').value;
         const medicamentoRecetado = document.getElementById('medicamentoRecetado').value;
 
-        const paciente = pacientes.find(p => p.nombre === nombreSeleccionado);
+        /*const paciente = pacientes.find(p => p.nombre === nombreSeleccionado);
         if (paciente) {
             paciente.doctores.push(nombreDoctor);
             paciente.medicamentos.push(medicamentoRecetado);
             alert(`Se ha registrado al doctor y medicamento para ${nombreSeleccionado}.`);
             actualizarListado();
-        }
+        } */
+
+        const datosDoctor = {
+            doctor: nombreDoctor,
+            medicamento: medicamentoRecetado
+        };
+
+        fetch(`localhost:3000/doctor/${nombreSeleccionado}`, {})
     });
 
     function actualizarListado() {
