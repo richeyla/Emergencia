@@ -4,17 +4,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const patient_1 = require("./models/patient");
+const patientRoutes_1 = __importDefault(require("./routes/patientRoutes"));
+const doctorRoutes_1 = __importDefault(require("./routes/doctorRoutes"));
+const emergencyRoutes_1 = __importDefault(require("./routes/emergencyRoutes"));
+const treatmentRoutes_1 = __importDefault(require("./routes/treatmentRoutes"));
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
-app.get('/patients', (req, res) => {
-    res.json((0, patient_1.getPatients)());
-});
-app.post('/patients', (req, res) => {
-    (0, patient_1.addPatient)(req.body);
-    res.status(201).json({ message: 'Patient added' });
-});
-// Otros endpoints 
-app.listen(3000, () => {
-    console.log('Server running on port 3000');
+// Rutas
+app.use('/api', patientRoutes_1.default);
+app.use('/api', doctorRoutes_1.default);
+app.use('/api', emergencyRoutes_1.default);
+app.use('/api', treatmentRoutes_1.default);
+// Puesta en marcha del servidor
+const port = process.env.PORT || 3001;
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
 });

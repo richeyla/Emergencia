@@ -10,16 +10,21 @@ export const getPatients = (req: Request, res: Response) => {
     }
 };
 
+// funcion controladora para agregar nuevos pacientes
 export const addPatient = (req: Request, res: Response) => {
     try {
-        const newPatient = req.body;
-        // Validar los datos aquí
+        const newPatient = req.body;//obtiene los datos del nuevo paciente 
+        // Validar los datos aquí (verifica que tenga un nombre y que la edad sea un número)
         if (!newPatient.name || typeof newPatient.age !== 'number') {
+             // si los datos son inválidos, responde con un estado 400 (Solicitud incorrecta) y un mensaje de error
             return res.status(400).json({ message: 'Invalid patient data' });
         }
+        // si los datos son válidos, llama a la función addPatient del servicio para agregar el nuevo paciente
         PatientService.addPatient(newPatient);
+        // responde un mensaje de éxito
         res.status(201).json({ message: 'Patient added successfully' });
     } catch (error) {
+        
         console.error('Error adding patient:', error);
         res.status(500).json({ message: 'Error adding patient' });
     }

@@ -8,7 +8,7 @@ exports.addDoctor = addDoctor;
 const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
 //Ruta del JSON
-const datePath = path_1.default.join(__dirname, '../');
+const datePath = path_1.default.join(__dirname, '../../data/doctors.json');
 function getDoctors() {
     const data = JSON.parse(fs_1.default.readFileSync(datePath, 'utf8'));
     return data.doctors;

@@ -8,7 +8,7 @@ exports.addEmergencies = addEmergencies;
 const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
 //Ruta del JSON
-const dataPath = path_1.default.join(__dirname, '../');
+const dataPath = path_1.default.join(__dirname, '../../data/emergency.json');
 function getEmergencies() {
     const data = JSON.parse(fs_1.default.readFileSync(dataPath, 'utf8'));
     return data.emergencies;
