@@ -2,13 +2,13 @@ import fs from 'fs';
 import path from 'path';
 
 // Ruta al archivo JSON
-const dataPath = path.join(__dirname, '../');
+const dataPath = path.join(__dirname, '../../data/treatment.json');
 
 export interface Treatment {
-    name:string;
-    description:string;
-    doctor:string[];
-    patients:string[];
+    treatmentId: number;         
+    doctorId: number;            
+    patientName: string;         
+    treatmentDescription: string; 
 }
 
 export function getTreatments(): Treatment[]{

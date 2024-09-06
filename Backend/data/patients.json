@@ -1,29 +1,18 @@
-[
-  {
-    "nombre": "Juan Pérez",
-    "edad": 30,
-    "sexo": "Masculino",
-    "idNumber": "001-4574157-8",
-    "telefono": "555-1234",
-    "nombrePariente": "Maria Pérez",
-    "telefonoPariente": "555-5678",
-    "sintomas": "Dolor de cabeza",
-    "internado": false,
-    "doctores": [],
-    "medicamentos": []
-  },
-  {
-    "name": "John Doe",
-    "age": 35,
-    "gender": "male",
-    "idNumber": "001-1246578-6",
-    "phone": "555-1234",
-    "relativeName": "Jane Doe",
-    "relativePhone": "555-5678",
-    "symptoms": "fever, cough",
-    "hospitalized": true,
-    "emergencies": [],
-    "doctors": [],
-    "treatments": []
-  }
-]
+{
+  "patients": [
+      {
+          "name": "Juan Perez",
+          "age": 30,
+          "gender": "Masculino",
+          "idNumber": 123456,
+          "phone": "809-220-1111",
+          "relativeName": "Maria Jose",
+          "relativePhone": "829-354-2547",
+          "symptoms": "Fractura",
+          "hospitalized": true,
+          "emergencies": [],
+          "doctors": ["Dr. Smith"],
+          "treatments": ["Yeso"]
+      }
+  ]
+}

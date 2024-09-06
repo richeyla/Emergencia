@@ -1,9 +1,8 @@
-import express from 'express';
-import { getEmergencies, addEmergency } from '../controllers/emergencyController';
+import { Router } from 'express';
+import { getEmergenciesHandler } from '../controllers/emergencyController';
 
-const router = express.Router();
+const router = Router();
 
-router.get('/emergencies', getEmergencies);
-router.post('/emergencies', addEmergency);
+router.get('/emergencies', getEmergenciesHandler);
 
 export default router;

@@ -1,8 +1,8 @@
-import express from 'express';
-import { getTreatments } from '../controllers/treatmentController';
+import { Router } from 'express';
+import { getTreatmentsHandler } from '../controllers/treatmentController';
 
-const router = express.Router();
+const router = Router();
 
-router.get('/treatments', getTreatments);
+router.get('/treatments', getTreatmentsHandler);
 
 export default router;

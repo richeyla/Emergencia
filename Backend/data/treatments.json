@@ -1,0 +1,20 @@
+[
+    {
+        "treatmentId": 101,
+        "doctorId": 1,
+        "patientName": "Ana Martínez",
+        "treatmentDescription": "Administración de analgésicos y estudios de imagen"
+    },
+    {
+        "treatmentId": 102,
+        "doctorId": 2,
+        "patientName": "Luis Rodríguez",
+        "treatmentDescription": "Colocación de yeso y seguimiento ortopédico"
+    },
+    {
+        "treatmentId": 103,
+        "doctorId": 3,
+        "patientName": "Laura Hernández",
+        "treatmentDescription": "Administración de antihistamínicos y observación en urgencias"
+    }
+]

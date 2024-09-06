@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 //Ruta del JSON
-const datePath = path.join(__dirname, '../');
+const datePath = path.join(__dirname, '../../data/doctors.json');
 
 export interface Doctor {
     name: string;

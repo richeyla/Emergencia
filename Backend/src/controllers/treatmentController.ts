@@ -1,11 +1,12 @@
 import { Request, Response } from 'express';
-import { TreatmentService } from '../services/treatmentService';
+import { getTreatments } from '../services/treatmentService';
 
-export const getTreatments = (req: Request, res: Response) => {
+export const getTreatmentsHandler = (req: Request, res: Response) => {
     try {
-        const treatments = TreatmentService.getTreatments();
+        const treatments = getTreatments();
         res.status(200).json(treatments);
     } catch (error) {
+        console.error('Error retrieving treatments:', error);
         res.status(500).json({ message: 'Error retrieving treatments' });
     }
 };

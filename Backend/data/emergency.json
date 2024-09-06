@@ -1,0 +1,16 @@
+{
+    "emergencies": [
+        {
+            "reason": "Ana Martínez",
+            "patientName": "Dolor abdominal severo"
+        },
+        {
+            "reason": "Jesus Perez",
+            "patientName": "Dolor severo"
+        },
+        {
+            "reason": "Ana Beato",
+            "patientName": "Dolor en Cuello"
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+  "doctors": [
+    {
+      "id": 1,
+      "name": "Dr. Juan Pérez",
+      "specialty": "Cardiología",
+      "yearsOfExperience": 10,
+      "email": "juan.perez@hospital.com"
+    },
+    {
+      "id": 2,
+      "name": "Dra. María López",
+      "specialty": "Neurología",
+      "yearsOfExperience": 8,
+      "email": "maria.lopez@hospital.com"
+    },
+    {
+      "id": 3,
+      "name": "Dr. Carlos Gómez",
+      "specialty": "Pediatría",
+      "yearsOfExperience": 12,
+      "email": "carlos.gomez@hospital.com"
+    }
+  ]
+}
